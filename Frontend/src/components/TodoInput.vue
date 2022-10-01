@@ -1,17 +1,17 @@
 <script setup>
 import { ref } from 'vue'
 const description = ref('')
+const emit = defineEmits(['addTodoItem'])
 
-
-async function handleAdd() {
-  try {
-    alert('todo')
-  } catch (error) {
-    console.error(error)
-  }
+const onAdd = () => {
+  emit('addTodoItem', description.value)
 }
 
-function handleClear() {
+const onDescriptionChange = (event) => {
+  description.value = event.target.value
+}
+
+const onClear = () => {
   description.value = ''
 }
 </script>
@@ -27,13 +27,14 @@ function handleClear() {
         type="text"
         placeholder="Enter description..."
         :value="description"
+        @input="onDescriptionChange"
       />
     </div>
   </div>
   <div class="row mb-3 offset-md-2">
     <div class="hstack gap-2">
-      <button type="button" class="btn btn-primary" @click="handleAdd">Add Item</button>
-      <button type="button" class="btn btn-secondary" @click="handleClear">Clear</button>
+      <button type="button" class="btn btn-primary" @click="onAdd">Add Item</button>
+      <button type="button" class="btn btn-secondary" @click="onClear">Clear</button>
     </div>
   </div>
 </template>
