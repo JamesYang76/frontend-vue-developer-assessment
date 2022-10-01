@@ -1,8 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-
-import { addTodoItemAPI, getTodoItemsAPI, toogleTodoItemsAPI } from './api/todos.js'
-
+import { addTodoItemAPI, getTodoItemsAPI, toggleTodoItemsAPI } from './api/todos.js'
 import TodoHeader from './components/TodoHeader.vue'
 import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
@@ -43,7 +41,7 @@ const onAddTodoItem = (todoItem) => {
 
 const onToggleTodoItem = (todoItem, idx) => {
   setMessage('Updating...')
-  toogleTodoItemsAPI({...todoItem, isCompleted: !todoItem.isCompleted}).then(({data}) => {
+  toggleTodoItemsAPI({...todoItem, isCompleted: !todoItem.isCompleted}).then(({data}) => {
     setMessage('Update Success!!!')
    items.value[idx].isCompleted = data.isCompleted
   }).catch((e)=> {
