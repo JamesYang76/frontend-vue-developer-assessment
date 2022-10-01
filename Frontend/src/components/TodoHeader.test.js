@@ -2,7 +2,7 @@ import {describe, test, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import TodoHeader from './TodoHeader.vue'
 
-describe("TodoHeader.vue", () => {
+describe('TodoHeader.vue', () => {
   test('renders the header text', () => {
     const wrapper = mount(TodoHeader)
     const header = wrapper.get('.alert-heading')
