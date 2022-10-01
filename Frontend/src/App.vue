@@ -8,9 +8,9 @@ import TodoFooter from './components/TodoFooter.vue'
 import TodoActionStatus from "./components/TodoActionStatus.vue";
 
 const items = ref([])
-const status = ref({message: '', error: false})
+const status = ref({ message: '', error: false })
 
-onMounted(() => { onGetTodoItems(); })
+onMounted(() => { onGetTodoItems() })
 
 const setMessage = (newMessage, error = false) => {
   status.value.message = newMessage
@@ -25,7 +25,7 @@ const onGetTodoItems = () => {
   }).catch((e)=> {
     console.error(e)
     setMessage(e.message, true)
-  });
+  })
 }
 
 const onAddTodoItem = (todoItem) => {
@@ -36,18 +36,18 @@ const onAddTodoItem = (todoItem) => {
   }).catch((e)=> {
     console.error(e)
     setMessage(e.response.data, true)
-  });
+  })
 }
 
 const onToggleTodoItem = (todoItem, idx) => {
   setMessage('Updating...')
   toggleTodoItemsAPI({...todoItem, isCompleted: !todoItem.isCompleted}).then(({data}) => {
     setMessage('Update Success!!!')
-   items.value[idx].isCompleted = data.isCompleted
+    items.value[idx].isCompleted = data.isCompleted
   }).catch((e)=> {
     console.error(e)
     setMessage(e.response.data, true)
-  });
+  })
 }
 </script>
 

@@ -1,12 +1,11 @@
 <script setup>
 const props = defineProps({
-  items: Array
+  items: { type: Array, required: true }
 })
 
 const emit = defineEmits(['getTodoItems', 'toggleTodoItem'])
-
 const onGetItems = () => { emit('getTodoItems') }
-const onToggleItem = (todoItem, idx) => { emit('toggleTodoItem', todoItem, idx)}
+const onToggleItem = (todoItem, idx) => { emit('toggleTodoItem', todoItem, idx) }
 </script>
 
 <template>
@@ -35,7 +34,6 @@ const onToggleItem = (todoItem, idx) => { emit('toggleTodoItem', todoItem, idx)}
     </tbody>
   </table>
 </template>
-
 
 <style scoped>
 .completed {

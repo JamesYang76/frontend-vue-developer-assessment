@@ -3,19 +3,10 @@ import { ref } from 'vue'
 const description = ref('')
 const emit = defineEmits(['addTodoItem'])
 
-const onAdd = () => {
-  emit('addTodoItem', description.value)
-}
-
-const onDescriptionChange = (event) => {
-  description.value = event.target.value
-}
-
-const onClear = () => {
-  description.value = ''
-}
+const onAdd = () => { emit('addTodoItem', description.value) }
+const onDescriptionChange = (event) => { description.value = event.target.value }
+const onClear = () => { description.value = '' }
 </script>
-
 
 <template>
   <h1>Add Item</h1>
