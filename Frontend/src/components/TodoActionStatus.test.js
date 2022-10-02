@@ -17,6 +17,6 @@ describe('TodoActionStatus.vue', () => {
       props: { status: status }
     })
     expect(wrapper.text()).toContain(status.message)
-    expect(wrapper.classes()).toEqual( expect.arrayContaining(['error']) )
+    expect(wrapper.classes()).toContain('error')
   })
 })

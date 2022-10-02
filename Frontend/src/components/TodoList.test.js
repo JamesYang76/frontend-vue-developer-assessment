@@ -45,4 +45,3 @@ describe('TodoList.vue', () => {
     expect(wrapper.emitted()).toHaveProperty('toggleTodoItem')
   })
 })
-
