@@ -5,7 +5,7 @@ import TodoHeader from './components/TodoHeader.vue'
 import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
-import TodoActionStatus from "./components/TodoActionStatus.vue";
+import TodoActionStatus from './components/TodoActionStatus.vue';
 
 const items = ref([])
 const status = ref({ message: '', error: false })
